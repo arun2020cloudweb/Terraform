@@ -1,0 +1,25 @@
+[
+  {
+    "name": "authentication-frontend",
+    "image": "docker.st.assaabloy.net/msfss/authentication-frontend",
+    "cpu": 10,
+    "memory": 128,
+    "portMappings": [
+      {
+        "containerPort":8080 ,
+        "hostPort":9010
+      },
+      {
+        "containerPort":8081 ,
+        "hostPort":9011
+      }
+    ],
+    "environment": [
+      {
+        "name": "server_domain",
+        "value": "stg.msfss.api.assaabloy.com"
+      }
+    ],
+    "essential": true
+  }
+]

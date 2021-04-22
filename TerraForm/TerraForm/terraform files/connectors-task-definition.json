@@ -1,0 +1,32 @@
+[
+  {
+    "environment": [
+        {
+            "name": "RABBIT_HOST",
+            "value": "internal-stage-rabbit-elb-1921155894.eu-west-1.elb.amazonaws.com"
+        }
+    ],
+    "mountPoints": [
+        {
+            "sourceVolume": "docker_sock",
+            "containerPath": "/var/run/docker.sock",
+            "readOnly": false
+        },
+        {
+            "sourceVolume": "proc",
+            "containerPath": "/host/proc",
+            "readOnly": true
+        },
+        {
+            "sourceVolume": "cgroup",
+            "containerPath": "/host/sys/fs/cgroup",
+            "readOnly": true
+        }
+    ],
+    "name": "system-services-connector",
+    "image": "docker.st.assaabloy.net/msfss/system-services-connector",
+    "cpu": 10,
+    "memory": 128,
+    "essential": true
+  }
+]

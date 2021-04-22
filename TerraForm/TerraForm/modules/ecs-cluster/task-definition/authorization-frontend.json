@@ -1,0 +1,25 @@
+[
+  {
+    "name": "authorization-frontend",
+    "image": "docker.st.assaabloy.net/msfss/authorization-frontend",
+    "cpu": 10,
+    "memory": 128,
+    "portMappings": [
+      {
+        "containerPort":8080 ,
+        "hostPort":9000
+      },
+      {
+        "containerPort":8081 ,
+        "hostPort":9001
+      }
+    ],
+    "environment": [
+      {
+        "name": "server_domain",
+        "value": "stg.msfss.api.assaabloy.com"
+      }
+    ],
+    "essential": true
+  }
+]

@@ -1,0 +1,41 @@
+[
+{
+  "name": "system-service",
+  "image": "docker.st.assaabloy.net/msfss/system-service",
+  "cpu": 10,
+  "memory": 128,
+  "portMappings": [
+    {
+      "containerPort": 8080,
+      "hostPort": 9300
+    },
+    {
+      "containerPort": 8081,
+      "hostPort": 9301
+    }
+  ],
+  "environment": [
+    {
+      "name": "RABBIT_HOST",
+      "value": "elb-rabbit.api.msfss.assaabloy.net"
+    },
+    {
+      "name": "RABBIT_PORT",
+      "value": "5672"
+    },
+    {
+      "name": "POSTGRES_USER",
+      "value": "system"
+    },
+    {
+      "name": "POSTGRES_PASSWORD",
+      "value": "system"
+    },
+    {
+      "name" :"POSTGRES_URL",
+      "value": "jdbc:postgresql://stage-rds.cmccmcg1lkjx.eu-west-1.rds.amazonaws.com:5432/system"
+    }
+  ],
+  "essential": true
+}
+]

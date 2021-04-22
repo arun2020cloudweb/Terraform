@@ -1,0 +1,28 @@
+[
+  {
+    "name": "business-entity-service",
+    "image": "docker.st.assaabloy.net/msfss/business-entity-service",
+    "cpu": 10,
+    "memory": 128,
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 9500
+      },
+      {
+        "containerPort": 8081,
+        "hostPort": 9501
+      }
+    ],
+    "environment": [
+      {
+        "RABBIT_HOST": "elb-rabbit.api.msfss.assaabloy.net",
+        "RABBIT_PORT": "5672",
+        "POSTGRES_USER": "businessentity",
+        "POSTGRES_PASSWORD": "businessentity",
+        "POSTGRES_URL": "jdbc:postgresql://stage-rds.cmccmcg1lkjx.eu-west-1.rds.amazonaws.com:5432/businessentity"
+      }
+    ],
+    "essential": true
+  }
+]
