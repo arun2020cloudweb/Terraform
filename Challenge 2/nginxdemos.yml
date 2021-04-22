@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:nginx-demos
+    app:nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - env:
+        name: nginx
+          image:nginxdemos/hello
+		  containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 1G
+            memory: 2Gi
+          requests:
+            cpu: 250m
+            memory: 500Mi
+        terminationMessagePath: /dev/termination-log
+       
